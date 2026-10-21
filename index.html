@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 40px 16px;
+            color: #1f2933;
+        }
+
+        .form-container {
+            max-width: 420px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 28px 32px 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 24px;
+            text-align: center;
+            color: #1d4e89;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #b0bcc8;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1d4e89;
+            box-shadow: 0 0 0 2px rgba(29, 78, 137, 0.2);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #1d4e89;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #163c6b;
+        }
+
+        #message {
+            margin-top: 16px;
+            text-align: center;
+            color: #1b7f3b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Registration Form</h1>
+
+        <form id="registration-form" action="#" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" name="contact" placeholder="10-digit mobile number"
+                       pattern="[0-9]{10}" title="Please enter a 10-digit contact number" required>
+            </div>
+
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // No backend is used. After the browser's own validation passes,
+        // show a confirmation message and clear the form.
+        document.getElementById("registration-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            document.getElementById("message").textContent = "Form submitted successfully!";
+            this.reset();
+        });
+    </script>
+</body>
+</html>
